@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProfileService } from './profile-request/profile.service';
 
 @Component({
   selector: 'app-root',
