@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl:"https://api.github.com/users/Antavio",
+  access_token:"?d0516c8c29f1f42895f969ce6cac48ba41506d23"
 };
 
 /*
