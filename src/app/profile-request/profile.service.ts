@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {User} from '../user';
 import { environment } from 'src/environments/environment';
 
@@ -8,20 +8,24 @@ export class ProfileService {
 
   user:User
   constructor(private http:HttpClient) {
-    this.user = new User("");
+    // this.user.login = "Antavio";
+    this.user = new User("","","");
    } 
 
    getInfo(){
 
     interface UserInfo{
       login:string;
-      
+      avatar_url:string;
+      public_repos:string;
 
   }
 
     let promise = new Promise((resolve,reject)=>{
       this.http.get<UserInfo>(environment.apiUrl+environment.access_token).subscribe(data=>{
         this.user.login= data.login
+        this.user.avatar_url = data.avatar_url
+        this.user.public_repos = data.public_repos
         // console.log(data.login);
         resolve()
        },error=>{
