@@ -8,3 +8,6 @@ h2{
 .badge{
     margin-left: 20px;
 }
+.btn{
+    border-radius: 45%;
+}
