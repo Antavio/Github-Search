@@ -9,7 +9,7 @@ export class ProfileService {
   user:User
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
-    this.user = new User("","","");
+    this.user = new User("","","",0,0,"");
    } 
 
    getInfo(){
@@ -18,6 +18,9 @@ export class ProfileService {
       login:string;
       avatar_url:string;
       public_repos:string;
+      followers:number;
+      following:number;
+      html_url:string;
 
   }
 
@@ -26,6 +29,9 @@ export class ProfileService {
         this.user.login= data.login
         this.user.avatar_url = data.avatar_url
         this.user.public_repos = data.public_repos
+        this.user.followers=data.followers
+        this.user.following=data.following
+        this.user.html_url=data.html_url
         // console.log(data.login);
         resolve()
        },error=>{

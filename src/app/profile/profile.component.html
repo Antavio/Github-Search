@@ -1,25 +1,40 @@
 
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron">
     <h2>
       Did You Know You can Search your Github info Easily
     </h2>
-  </div>
-  <div class="row">
+    <form class="form-inline active-cyan-4 text-centre">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </form>
+  </div> 
+  
+        
+  <div class="row" *ngIf="user">
     <div class="col-md-5">
-        <form class="form-inline active-cyan-3 active-cyan-4">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            
-          </form>
+      <img src="{{user.avatar_url}}" class="rounded-circle z-depth-2" data-holder-rendered="true" alt="Profile Picture" >
+        
     </div>
     <div class="col-md-7">
-      <img src="{{user.avatar_url}}" alt="Profile Picture">
+    <div class="panel-body">
+    
+      <div class="row">
+        <p>
+        <span class="badge badge-pill badge-default">Followers:{{user.followers}}</span>
+        <span class="badge badge-pill badge-success">Following{{user.following}}</span>
+        <span class="badge badge-pill badge-secondary">Repos:{{user.public_repos}}</span>
+        <!-- <span class="badge badge-pill badge-primary">Followers</span> -->
+      </p>
+    </div>
+      <p><a href="{{user.html_url}}" target="_blank" class="btn btn-danger btn-rounded">View Profile on Github</a></p>
+     
         <h5>  
             Username: <strong>{{user.login}}</strong><br>
             Repositories: <strong>{{user.public_repos}}</strong>
           </h5>
     </div>
-
+    
+</div>
 </div>
 </div>
