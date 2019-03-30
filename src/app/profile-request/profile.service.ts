@@ -7,14 +7,14 @@ import { Repository } from '../repository';
 @Injectable()
 export class ProfileService {
 
-  user:User
+  user:User;
   repo:Repository
   public username:string;
 
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
     this.user = new User("","","",0,0,"");
-    this.repo= new Repository("","","");
+    this.repo= new Repository("");
     this.username = "Antavio";
     
    } 
@@ -32,13 +32,13 @@ export class ProfileService {
   }
 
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<UserInfo>(environment.apiUrl+this.username +environment.access_token).subscribe(data=>{
-        this.user.login= data.login
-        this.user.avatar_url = data.avatar_url
-        this.user.public_repos = data.public_repos
-        this.user.followers=data.followers
-        this.user.following=data.following
-        this.user.html_url=data.html_url
+      this.http.get<UserInfo>(environment.apiUrl+this.username +environment.access_token).toPromise().then(response=>{
+        this.user.login= response.login
+        this.user.avatar_url = response.avatar_url
+        this.user.public_repos = response.public_repos
+        this.user.followers=response.followers
+        this.user.following=response.following
+        this.user.html_url=response.html_url
         console.log(this.user);
         resolve()
        },error=>{
@@ -49,28 +49,22 @@ export class ProfileService {
      return promise
    }
 
-  
+   //Repo Info
+   getRepoInfo(){
 
-  getRepo(){
-
-    interface RepoInfo{
-      name:string
-      html_url:string
-      description:string
-
+    interface APInfo{
+      description:string;
+      
   }
 
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<RepoInfo>(environment.apiUrl+this.username +'/repos' + environment.access_token).subscribe(data=>{
-        this.repo.name= data.name
-        this.repo.html_url = data.html_url
-        this.repo.description = data.description
+      this.http.get<APInfo>(environment.apiUrl+this.username + "/repos" +environment.access_token).toPromise().then(response=>{
+        this.repo.description= response.description
         
-        
-        resolve()
         console.log(this.repo);
+        resolve()
        },error=>{
-         this.user.login = "Error Fetching Data"
+         this.repo.description = "Error Fetching Data"
          reject(error)
        })
     })
@@ -80,5 +74,6 @@ export class ProfileService {
    updateProfile(username:string){
     this.username = username;
   }
+
 }
 // "https://api.github.com/users/Antavio/repos?access_token=d0516c8c29f1f42895f969ce6cac48ba41506d23"

@@ -13,7 +13,7 @@
               <input type="text" class="form-control" placeholder="Search Github username" [(ngModel)]="username" name="username">
             </div>
             <div class="col-sm-5">
-              <button class="btn btn-info btn-rounded" (click)="findUser()">Search</button>
+              <button class="btn btn-info" (click)="findUser()">Search</button>
             </div>
           </div>
         </div>
@@ -42,13 +42,13 @@
             Repositories: <strong>{{user.public_repos}}</strong>
           </h5>
     </div>
-    <div class="card card-secondary border border-secondary mb-3">
+    <div class="card card-secondary border border-success mb-3">
       <div class="card-heading">
-        <h4 class="card-title text-success"><strong>Public Repositories</strong></h4>
+        <h4 class="card-title text-success">Public Repositories for <strong>{{user.login}}</strong></h4>
       </div>
       <div class="card-body">
         
-        <p class="clearfix">{{repo.name}}dsdsdsdsds<a href="{{repo.html_url}}" target="_blank" class="btn btn-warning btn-rounded float-right">View Project on Github</a></p>
+        <p class="clearfix">dsdsdsdsds<a href="" target="_blank" class="btn btn-danger btn-rounded float-right">View Project on Github</a></p>
         
         <p>{{repo.description}}This is Dummy Text to didididididid dididiid ddidid</p>
         
