@@ -6,7 +6,7 @@ import { Directive, ElementRef } from '@angular/core';
 export class TextColourChangeDirective {
 
   constructor(private el: ElementRef) {
-    this.el.nativeElement.style.textDecoration = "underline";
+    this.el.nativeElement.style.color = '#1071ED';
    }
 
 }
