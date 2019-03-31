@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { UpperCasePipe } from './upper-case.pipe';
+import { TextColourChangeDirective } from './text-colour-change.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UpperCasePipe } from './upper-case.pipe';
     ProfileComponent,
     AboutComponent,
     PageErrorComponent,
-    UpperCasePipe
+    UpperCasePipe,
+    TextColourChangeDirective
   ],
   imports: [
     BrowserModule,
