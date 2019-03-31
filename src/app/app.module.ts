@@ -1,13 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-const routes:Routes=[
-  {path:"profile",component:ProfileComponent},
-  {path:"about",component:AboutComponent},
-  {path:"",redirectTo:"/profile",pathMatch:"full"},
-  {path:'**',component:PageErrorComponent}
-]
-
+import { RoutingModule } from './routing/routing.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +23,7 @@ import { PageErrorComponent } from './page-error/page-error.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ProfileService],
   bootstrap: [AppComponent]
