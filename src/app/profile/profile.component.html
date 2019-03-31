@@ -42,12 +42,12 @@
             Username: <strong>{{user.login}}</strong>
         </h5>
            <h5> Bio Data: <strong>{{user.bio|upperCase}}</strong></h5>
-           <h5>  Member Since: <strong>{{user.created_at}}</strong></h5>
+           <h5 appTextColourChange>  Member Since: <strong>{{user.created_at}}</strong></h5>
           
     </div>
     <div class="card card-secondary border border-success mb-3">
       <div class="card-heading">
-        <h4 class="card-title text-success">Public Repositories for <strong>{{user.login}}</strong></h4>
+        <h4 class="card-title text-success" >Public Repositories for <strong>{{user.login}}</strong></h4>
       </div>
       <div class="card-body">
         

@@ -1,10 +1,12 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appTextColourChange]'
 })
 export class TextColourChangeDirective {
 
-  constructor() { }
+  constructor(private el: ElementRef) {
+    this.el.nativeElement.style.textDecoration = "underline";
+   }
 
 }
