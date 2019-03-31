@@ -1,7 +1,6 @@
 h2{
-    font-family: 'Audiowide', cursive;
-    font-family: 'Faster One', cursive;
-    font-family: 'Vast Shadow', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 46px;
     margin-bottom: 4%;
     
 }
@@ -9,5 +8,9 @@ h2{
     margin-left: 20px;
 }
 .btn{
-    border-radius: 45%;
+    border-radius: 60px;
+}
+.jumbotron{
+    padding: 1%;
+    margin-top: 15px;
 }

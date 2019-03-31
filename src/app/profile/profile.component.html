@@ -1,9 +1,10 @@
 <div class="container-fluid">
-  <div class="jumbotron">
+  <div class="jumbotron text-center blue-grey lighten-5">
     <h2>
-      Did You Know You can Search your Github info Easily
+      Did You Know You can Search your Github info Easily?
     </h2>
   </div> 
+  
   
   <div id="form">
       <form action="">
@@ -29,9 +30,9 @@
     
       <div class="row">
         <p>
-        <span class="badge badge-pill badge-default">Followers:{{user.followers}}</span>
-        <span class="badge badge-pill badge-success">Following{{user.following}}</span>
-        <span class="badge badge-pill badge-secondary">Repos:{{user.public_repos}}</span>
+        <span class="badge badge-pill badge-default">Followers: {{user.followers}}</span>
+        <span class="badge badge-pill badge-success">Following: {{user.following}}</span>
+        <span class="badge badge-pill badge-secondary">Public Repositories: {{user.public_repos}}</span>
         <!-- <span class="badge badge-pill badge-primary">Followers</span> -->
       </p>
     </div>
@@ -39,7 +40,8 @@
      
         <h5>  
             Username: <strong>{{user.login}}</strong><br>
-            Repositories: <strong>{{user.public_repos}}</strong>
+            Repositories: <strong>{{user.public_repos}}</strong><br>
+            Member Since: <strong>{{user.created_at}}</strong>
           </h5>
     </div>
     <div class="card card-secondary border border-success mb-3">
