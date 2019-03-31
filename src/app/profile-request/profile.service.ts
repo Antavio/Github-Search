@@ -13,7 +13,7 @@ export class ProfileService {
 
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
-    this.user = new User("","","",0,0,"","");
+    this.user = new User("","","",0,0,"","","");
     this.repo= new Repository("");
     this.username = "Antavio";
     
@@ -29,6 +29,7 @@ export class ProfileService {
       following:number;
       html_url:string;
       created_at:string;
+      bio:string;
 
   }
 
@@ -41,6 +42,7 @@ export class ProfileService {
         this.user.following=response.following
         this.user.html_url=response.html_url
         this.user.created_at=response.created_at
+        this.user.bio=response.bio
         console.log(this.user);
         resolve()
        },error=>{

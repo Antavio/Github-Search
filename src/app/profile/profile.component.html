@@ -30,19 +30,20 @@
     
       <div class="row">
         <p>
-        <span class="badge badge-pill badge-default">Followers: {{user.followers}}</span>
-        <span class="badge badge-pill badge-success">Following: {{user.following}}</span>
         <span class="badge badge-pill badge-secondary">Public Repositories: {{user.public_repos}}</span>
+        <span class="badge badge-pill badge-success">Following: {{user.following}}</span>
+        <span class="badge badge-pill badge-default">Followers: {{user.followers}}</span>
         <!-- <span class="badge badge-pill badge-primary">Followers</span> -->
       </p>
     </div>
       <p><a href="{{user.html_url}}" target="_blank" class="btn btn-danger btn-rounded">View Profile on Github</a></p>
      
         <h5>  
-            Username: <strong>{{user.login|upperCase}}</strong><br>
-            Repositories: <strong>{{user.public_repos}}</strong><br>
-            Member Since: <strong>{{user.created_at}}</strong>
-          </h5>
+            Username: <strong>{{user.login}}</strong>
+        </h5>
+           <h5> Bio Data: <strong>{{user.bio|upperCase}}</strong></h5>
+           <h5>  Member Since: <strong>{{user.created_at}}</strong></h5>
+          
     </div>
     <div class="card card-secondary border border-success mb-3">
       <div class="card-heading">
