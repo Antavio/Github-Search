@@ -47,13 +47,13 @@
     </div>
     <div class="card card-secondary border border-success mb-3">
       <div class="card-heading">
-        <h4 class="card-title text-success" >Public Repositories for <strong>{{user.login}}</strong></h4>
+        <h4 class="card-title text-center text-primary" >Public Repositories for <strong>{{user.login}}</strong></h4>
       </div>
-      <div class="card-body">
+      <div class="card-body"> 
         
-        <p class="clearfix">dsdsdsdsds<a href="" target="_blank" class="btn btn-danger btn-rounded float-right">View Project on Github</a></p>
+        <p class="clearfix">Repo Name: {{repo.name}}<a href="{{repo.html_url}}" target="_blank" class="btn btn-danger float-right">View Repository on Github</a></p>
         
-        <p>{{repo.description}}This is Dummy Text to didididididid dididiid ddidid</p>
+        <p>{{repo.description}}This is Dummy Text to display Repository Description</p>
         
       </div>
     </div>
