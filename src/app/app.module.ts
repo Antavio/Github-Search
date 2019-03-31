@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 const routes:Routes=[
   {path:"profile",component:ProfileComponent},
-  {path:"about",component:AboutComponent}
+  {path:"about",component:AboutComponent},
+  {path:"",redirectTo:"/profile",pathMatch:"full"},
+  {path:'**',component:PageErrorComponent}
 ]
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
