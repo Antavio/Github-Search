@@ -14,7 +14,7 @@ export class ProfileService {
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
     this.user = new User("","","",0,0,"","","");
-    this.repo= new Repository("");
+    this.repo= new Repository("","","");
     this.username = "Antavio";
     
    } 
@@ -57,15 +57,19 @@ export class ProfileService {
    getRepoInfo(){
 
     interface APInfo{
+      name:string;
+      html_url:string;
       description:string;
       
   }
 
     let promise = new Promise((resolve,reject)=>{
       this.http.get<APInfo>(environment.apiUrl+this.username + "/repos" +environment.access_token).toPromise().then(response=>{
-        this.repo.description= response.description
+        this.repo.name=response.name;
+        this.repo.html_url=response.html_url;
+        this.repo.description= response.description;        
         
-        console.log(this.repo);
+        console.log(response);
         resolve()
        },error=>{
          this.repo.description = "Error Fetching Data"
