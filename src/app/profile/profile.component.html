@@ -49,11 +49,11 @@
       <div class="card-heading">
         <h4 class="card-title text-center diff" >Public Repositories for <strong>{{user.login}}</strong></h4>
       </div>
-      <div class="card-body"> 
+      <div class="card-body" *ngFor='let rep of repo'> 
         
-        <p class="clearfix ">Repo Name: {{repo.name}}<a href="{{repo.html_url}}" target="_blank" class="btn btn-danger float-right">View Repository on Github</a></p>
+        <p class="clearfix ">Repo Name: <strong>{{rep.name}}</strong><a href="{{rep.html_url}}" target="_blank" class="btn btn-danger float-right">View Repository on Github</a></p>
         
-        <p>{{repo.description}}This is Dummy Text to display Repository Description</p>
+        <p>{{rep.description}}</p>
         
       </div>
     </div>

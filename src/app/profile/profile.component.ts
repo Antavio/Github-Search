@@ -11,7 +11,7 @@ import { Repository } from '../repository';
 })
 export class ProfileComponent implements OnInit {
   user:User;
-  repo:Repository;
+  repo:Repository[];
   public username:string;
   
   constructor(private profService:ProfileService) { 
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
     this.profService.getInfo();    
     this.profService.getRepoInfo();
     this.user=this.profService.user
-    this.repo=this.profService.repo
+    this.repo=this.profService.repos
   }
 
 }

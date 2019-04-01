@@ -8,13 +8,13 @@ import { Repository } from '../repository';
 export class ProfileService {
 
   user:User;
-  repo:Repository
+  repos:Repository[];
   public username:string;
 
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
     this.user = new User("","","",0,0,"","","");
-    this.repo= new Repository("","","");
+    this.repos= [];
     this.username = "Antavio";
     
    } 
@@ -47,6 +47,8 @@ export class ProfileService {
         resolve()
        },error=>{
          this.user.login = "Error Fetching Data"
+         this.user.avatar_url = "Error Fetching Data"
+         this.user.public_repos = "Error"
          reject(error)
        })
     })
@@ -64,15 +66,16 @@ export class ProfileService {
   }
 
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<APInfo>(environment.apiUrl+this.username + "/repos" +environment.access_token).toPromise().then(response=>{
-        this.repo.name=response.name;
-        this.repo.html_url=response.html_url;
-        this.repo.description= response.description;        
+      this.http.get<APInfo[]>(environment.apiUrl+this.username + "/repos" +environment.access_token).toPromise().then(response=>{
         
+        response.forEach(repo => {
+          this.repos.push(new Repository(repo.name, repo.html_url, repo.description))
+        });
+      
         console.log(response);
         resolve()
        },error=>{
-         this.repo.description = "Error Fetching Data"
+        //  this.repos.description = "Error Fetching Data"
          reject(error)
        })
     })
@@ -83,5 +86,6 @@ export class ProfileService {
     this.username = username;
   }
 
+  
 }
 // "https://api.github.com/users/Antavio/repos?access_token=d0516c8c29f1f42895f969ce6cac48ba41506d23"
