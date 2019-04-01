@@ -50,7 +50,7 @@ The different technologies that were used to develop this program include:
 
 
 ### Link to live site
-Here is a link to the live site 
+Here is a link to the live site https://antavio.github.io/Github-Search/
 
 
 ## Running unit tests
