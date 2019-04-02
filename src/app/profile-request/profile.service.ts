@@ -10,12 +10,14 @@ export class ProfileService {
   user:User;
   repos:Repository[];
   public username:string;
+  public newUsername:string;
 
   constructor(private http:HttpClient) {
     // this.user.login = "Antavio";
     this.user = new User("","","",0,0,"","","");
     this.repos= [];
     this.username = "Antavio";
+    this.newUsername='';
     
    } 
 
@@ -43,7 +45,7 @@ export class ProfileService {
         this.user.html_url=response.html_url
         this.user.created_at=response.created_at
         this.user.bio=response.bio
-        console.log(this.user);
+        
         resolve()
        },error=>{
          this.user.login = "Error Fetching Data"
@@ -70,10 +72,12 @@ export class ProfileService {
         
         response.forEach(repo => {
           this.repos.push(new Repository(repo.name, repo.html_url, repo.description))
+         
         });
-      
-        console.log(response);
+        
+        
         resolve()
+        
        },error=>{
         //  this.repos.description = "Error Fetching Data"
          reject(error)
@@ -84,8 +88,8 @@ export class ProfileService {
 
    updateProfile(username:string){
     this.username = username;
+    
   }
 
   
 }
-// "https://api.github.com/users/Antavio/repos?access_token=d0516c8c29f1f42895f969ce6cac48ba41506d23"
